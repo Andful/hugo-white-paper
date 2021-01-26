@@ -1,5 +1,8 @@
-{{- define "main" }}
-    {{- range .Site.Pages}}
-        {{- .Content -}}
-    {{- end}}
-{{- end }}
+{{ define "main" }}
+    <h1>{{ .Title }}</h1>
+    <h4>Abstract</h4>
+    {{ .Content }}
+    {{ range sort .Site.RegularPages.ByWeight.Reverse }}
+        {{ .Content }}
+    {{ end }}
+{{ end }}
